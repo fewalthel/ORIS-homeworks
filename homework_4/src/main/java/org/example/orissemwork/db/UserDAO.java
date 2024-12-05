@@ -104,12 +104,6 @@ public class UserDAO {
     public static User getById(Integer id) {
         User user = null;
 
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_ID_QUERY)) {
 
@@ -132,12 +126,6 @@ public class UserDAO {
 
     public static List<User> getAll() {
         List<User> users = new ArrayList<>();
-
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
 
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement statement = connection.prepareStatement(SELECT_ALL_QUERY)) {

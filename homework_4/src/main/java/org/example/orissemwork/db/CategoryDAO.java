@@ -15,12 +15,6 @@ public class CategoryDAO {
     public static Category getByName(String name) {
         Category category = null;
 
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_NAME_QUERY)) {
 
@@ -40,12 +34,6 @@ public class CategoryDAO {
 
     public static Category getById(Integer id) {
         Category category = null;
-
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
 
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_ID_QUERY)) {

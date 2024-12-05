@@ -143,7 +143,6 @@ public class AnswerDAO {
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_ID_QUERY)) {
 
             preparedStatement.setInt(1, id);
-
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
@@ -220,7 +219,7 @@ public class AnswerDAO {
         return (result != null && !result.equals(""));
     }
 
-    public static void deleteFromDBB (Answer ans) {
+    public static void deleteFromDBB(Answer ans) {
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_FROM_DB_QUERY)) {
 

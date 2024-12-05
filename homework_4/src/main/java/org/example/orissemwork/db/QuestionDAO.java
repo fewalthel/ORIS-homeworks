@@ -25,12 +25,6 @@ public class QuestionDAO {
     public static Question getByTitle(String title) {
         Question question = null;
 
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_TITLE_QUERY)) {
 
@@ -98,12 +92,6 @@ public class QuestionDAO {
 
     public static List<Question> getAll() {
         List<Question> questions = new ArrayList<>();
-
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
 
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement statement = connection.prepareStatement(SELECT_ALL_QUERY)) {
